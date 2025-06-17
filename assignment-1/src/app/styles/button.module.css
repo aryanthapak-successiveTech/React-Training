@@ -1,0 +1,19 @@
+.Red{
+    background-color: red;
+    color: white;
+}
+
+.Blue{
+    background-color: blue;
+    color:white;
+}
+
+.Green{
+    background-color: greenyellow;
+    color: white;
+}
+
+.options{
+    display: flex;
+    flex-direction: column;
+}
