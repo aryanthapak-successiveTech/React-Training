@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Weather from "../Component/Weather";
-import styles from "@/app/styles/weather.module.css";
+import styles from "@/app/Assignment-1/styles/weather.module.css";
 
 const WeatherPage = () => {
   const [temperature, setTemperature] = useState(null);
