@@ -1,4 +1,4 @@
-import styles from "@/app/styles/profile.module.css"
+import styles from "@/app/Assignment-1/styles/profile.module.css"
 
 const UserCard = (props) => {
   const { name, email, avatarUrl } = props;

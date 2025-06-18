@@ -1,14 +1,19 @@
-import React from 'react'
-
+"use client"
+import React from "react";
+import Greeting from "./Component/Greeting";
+import styles from "@/app/Assignment-1/page.module.css";
+import { usePathname, useRouter } from "next/navigation";
 const Assignment1 = () => {
-   return (
+  const pathname=usePathname();
+  const router=useRouter()
+  return (
     <div className={styles["main"]}>
       <h2>Question-1</h2>
       <Greeting />
       <h2>Question-2</h2>
       <button
         onClick={() => {
-          router.push("Users");
+          router.push(`${pathname}/Users`);
         }}
       >
         Click Me
@@ -16,7 +21,7 @@ const Assignment1 = () => {
       <h2>Question-3</h2>
       <button
         onClick={() => {
-          router.push("Weather");
+          router.push(`${pathname}/Weather`);
         }}
       >
         Click Me
@@ -24,7 +29,7 @@ const Assignment1 = () => {
       <h2>Question-4</h2>
       <button
         onClick={() => {
-          router.push("Counter");
+          router.push(`${pathname}/Counter`);
         }}
       >
         Click Me
@@ -32,7 +37,7 @@ const Assignment1 = () => {
       <h2>Question-5</h2>
       <button
         onClick={() => {
-          router.push("TaskList");
+          router.push(`${pathname}/TaskList`);
         }}
       >
         Click Me
@@ -40,13 +45,13 @@ const Assignment1 = () => {
       <h2>Question-6</h2>
       <button
         onClick={() => {
-          router.push("Button");
+          router.push(`${pathname}/Button`);
         }}
       >
         Click Me
       </button>
     </div>
   );
-}
+};
 
-export default Assignment1
+export default Assignment1;

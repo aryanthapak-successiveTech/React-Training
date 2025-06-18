@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import styles from "@/app/styles/counter.module.css";
+import styles from "@/app/Assignment-1/styles/counter.module.css";
 const Counter = () => {
   const [counter, setCounter] = useState(0);
   const incrementHandler = () => {

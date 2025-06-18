@@ -1,4 +1,4 @@
-import styles from "@/app/styles/button.module.css"
+import styles from "@/app/Assignment-1/styles/button.module.css"
 const Button=(props)=>{
     const {text,color}=props;
     return(
