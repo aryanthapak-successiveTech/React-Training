@@ -1,0 +1,15 @@
+.buttons{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.buttons button{
+    background-color:#ffffffb4;
+    padding:1rem;
+}
+
+
+
+

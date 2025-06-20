@@ -1,0 +1,27 @@
+.productImage{
+    align-self: center;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+}
+
+.data{
+    display: flex;
+    align-items: center;
+    gap:1rem;
+}
+
+.button{
+    padding:1rem;
+    border: none;
+    border-radius: 3px;
+    background-color: greenyellow;
+}
+
+@media screen and (max-width:728px){
+    .item{
+        display: block;
+    }
+}
