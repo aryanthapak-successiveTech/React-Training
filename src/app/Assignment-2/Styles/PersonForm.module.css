@@ -1,0 +1,27 @@
+.formFields{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border:3px solid black;
+    border-radius: 5px;
+    padding: 3rem;
+
+}
+
+.submitButton{
+    align-self: center;
+    border: none;
+    padding: 0.5rem;
+    background-color: #86ceeb;
+    color: white;
+    border-radius: 2px;
+}
+
+.submitButton:hover{
+    background-color: #77b9d3;
+}
+
+.wrongInput {
+  color: red;
+}

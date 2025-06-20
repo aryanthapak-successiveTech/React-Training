@@ -1,0 +1,12 @@
+.fields{
+    position: relative;
+}
+.message{
+    border: 3px solid greenyellow;
+    color: green;
+    display: inline-block;
+    position: absolute;
+    right: 0%;
+    top:0%;
+    background-color: #ffffff;
+}

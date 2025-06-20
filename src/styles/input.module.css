@@ -1,0 +1,30 @@
+.textInput{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    
+}
+
+.textInput input:focus{
+    outline: none;
+}
+
+.dark .textInput input{
+    background-color: transparent;
+    color: white;
+    padding-left: 1rem;
+    padding-bottom: 0.5rem;
+    padding-right: 1rem;
+}
+
+.light .textInput input{
+    background-color: transparent;
+    color: black;
+    padding-left: 1rem;
+    padding-bottom: 0.5rem;
+    padding-right: 1rem;
+}
+
+

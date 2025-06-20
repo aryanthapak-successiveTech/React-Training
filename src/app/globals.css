@@ -1,1 +1,14 @@
+.submitButton {
+  align-self: center;
+}
+
+.dark{
+  color: white;
+  background-color: black;
+}
+
+.light{
+  background-color: white;
+  color: black;
+}
 

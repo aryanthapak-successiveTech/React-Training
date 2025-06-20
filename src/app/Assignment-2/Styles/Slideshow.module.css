@@ -1,0 +1,38 @@
+.images{
+    width: 25rem;
+    height: 25rem;
+}
+
+.player{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.options{
+    display: flex;
+    gap:1.5rem;
+}
+
+.options .playbtn{
+    border: none;
+    padding: 0.5rem;
+    background-color:greenyellow;
+    color: white;
+    border-radius: 2px;
+}
+
+.options .pausebtn{
+    border: none;
+    padding: 0.5rem;
+    background-color: red;
+    color: white;
+    border-radius: 2px;
+}
+
+.options select:focus{
+    outline: none;
+}
+
