@@ -1,12 +1,15 @@
 "use client";
 
 import Input from "@/Components/Input";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "@/app/Assignment-2/Styles/Todo.module.css";
+import { translator } from "../Translation";
+import { LanguageContext } from "@/context/LanguageContext";
 const TodoList = () => {
   const [tasks, setTasks] = useState([]);
   const [task, setTask] = useState("");
-
+  const {language}=useContext(LanguageContext);
+  const translation=translator[language]
   const taskChangeHandler = (event) => {
     setTask(event.target.value);
   };
@@ -31,11 +34,11 @@ const TodoList = () => {
     <div className={styles["tasksForm"]}>
       <Input
         type={"text"}
-        title={"Enter task"}
+        title={translation?translation["Enter_Task"]:"Enter Task"}
         isRequired={true}
         onChangeHandler={taskChangeHandler}
       />
-      <button onClick={addTaskHandler}>Add Task</button>
+      <button onClick={addTaskHandler}>{translation?translation["Add_Task"]:"Add Task"}</button>
       {tasks.length > 0 ? (
         tasks.map((task, id) => (
           <div key={id} className={styles["tasks"]}>
@@ -60,7 +63,7 @@ const TodoList = () => {
           </div>
         ))
       ) : (
-        <p>No Tasks Present</p>
+        <p>{translation?translation["No_Task_Present"]:"No Task Present"}</p>
       )}
     </div>
   );

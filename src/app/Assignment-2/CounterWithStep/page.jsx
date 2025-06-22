@@ -1,12 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "@/styles/counter.module.css";
 import Input from "@/Components/Input";
+import { LanguageContext } from "@/context/LanguageContext";
+import { translator } from "../Translation";
+import ToggleButton from "@/Components/ToggleTheme";
+import ToggleLanguageButton from "@/Components/ToggleLanguage";
 const CounterWithStep = () => {
   const [counter, setCounter] = useState(0);
   const [step, setStep] = useState(1);
   const [stepIsValid, setStepIsValid] = useState(true);
+    const {language}=useContext(LanguageContext);
+    const translation=translator[language]
   const incrementHandler = () => {
     setCounter((prev) => prev + step);
   };
@@ -26,19 +32,22 @@ const CounterWithStep = () => {
 
   return (
     <div className={styles["counter"]}>
-      <p>Count :{counter}</p>
+      <p>{translation?translation["Count"]:"Count"} :{counter}</p>
       <Input
         type="Text"
-        title="Enter Steps"
+        title={translation?translation["Enter_Steps"]:"Enter Steps"}
         onChangeHandler={stepChangeHandler}
       />
       {!stepIsValid && (
-        <p className={styles["wrongInput"]}>Wrong input entered</p>
+        <p className={styles["wrongInput"]}>{translation?translation["Wrong_input_entered"]:"Wrong input entered"}</p>
       )}
       <div className={styles["spacebuttons"]}>
-        <button onClick={incrementHandler}>Increment</button>
-        <button onClick={decrementHandler}>Decrement</button>
+        <button onClick={incrementHandler}>{translation?translation["Increment"]:"Increment"}</button>
+        <button onClick={decrementHandler}>{translation?translation["Decrement"]:"Decrement"}</button>
       </div>
+      <ToggleButton />
+      <ToggleLanguageButton />
+      
     </div>
   );
 };

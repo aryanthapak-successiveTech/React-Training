@@ -9,7 +9,6 @@ export const LanguageContextProvider = ({ children }) => {
   const [language, setLanguage] = useState("en");
 
   const toggleLanguage = () => {
-    console.log("called")
     setLanguage((prev) => (prev == "en" ? "es" : "en"));
   };
 

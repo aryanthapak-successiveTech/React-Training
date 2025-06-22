@@ -1,0 +1,46 @@
+.votes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.bjpButton{
+    padding: 1rem;
+    background-color: orange;
+}
+
+.congressButton{
+    padding: 1rem;
+    background-color: greenyellow;
+}
+
+.bspButton{
+    padding: 1rem;
+    background-color: khaki;
+}
+
+.spButton{
+    padding: 1rem;
+    background-color:cadetblue;
+}
+
+.aapButton{
+    padding: 1rem;
+    background-color: white;
+}
+
+.votingButtons{
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:2rem;
+}

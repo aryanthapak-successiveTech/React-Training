@@ -1,0 +1,46 @@
+.cartContainer {
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.dark{
+    background-color: black;
+}
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+
+.itemDetails {
+  flex-grow: 1;
+}
+
+.itemCount {
+  margin-left: 10px;
+  color: #888;
+}
+
+.cartFooter {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.buttonGroup button {
+  margin-left: 5px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.backButton{
+    padding: 1rem;
+    background-color:rgb(173, 173, 173);
+    
+}

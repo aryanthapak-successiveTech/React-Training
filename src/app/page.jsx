@@ -3,15 +3,10 @@
 
 "use client";
 
-import styles from "@/app/page.module.css";
-import ToggleLanguageButton from "@/Components/ToggleLanguage";
-import ToggleButton from "@/Components/ToggleTheme";
-import { useRouter } from "next/navigation";
+
+
 export default function Home() {
-  const router = useRouter();
-  return (
-    <div className={styles["main"]}>
-      
-    </div>
+  return (<>
+  </>
   );
 }
