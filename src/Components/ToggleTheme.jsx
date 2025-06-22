@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 const ToggleButton = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  console.log(theme);
+
   return (
     <>
       {theme === "light" ? (

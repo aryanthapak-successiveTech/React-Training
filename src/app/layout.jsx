@@ -23,8 +23,10 @@ export default function RootLayout({ children }) {
       <HtmlWrapper>
         <ThemeProvider>
           <BodyWrapper>
-            <Navbar />
-            <CartContextProvider>{children}</CartContextProvider>
+            <CartContextProvider>
+              <Navbar />
+              {children}
+            </CartContextProvider>
           </BodyWrapper>
         </ThemeProvider>
       </HtmlWrapper>

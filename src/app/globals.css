@@ -2,6 +2,13 @@
   align-self: center;
 }
 
+.button{
+  padding: 1rem;
+  border: none;
+  border-radius: 2px;
+  background-color: aquamarine;
+}
+
 .dark{
   color: white;
   background-color: black;
@@ -12,3 +19,14 @@
   color: black;
 }
 
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:1rem;
+}
+
+.options{
+  padding: 1rem;
+}

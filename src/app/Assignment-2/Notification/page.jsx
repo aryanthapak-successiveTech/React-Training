@@ -1,10 +1,14 @@
 "use client";
 import Input from "@/Components/Input";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "@/app/Assignment-2/Styles/Notification.module.css";
+import { LanguageContext } from "@/context/LanguageContext";
+import { translator } from "../Translation";
 const Notification = () => {
   const [message, setMessage] = useState("");
   const [messageChanged, setMessageChanged] = useState(false);
+  const {language}=useContext(LanguageContext);
+  const translation=translator[language]
   useEffect(()=>{
     let timer=setTimeout(() => {
       setMessageChanged(false);
@@ -28,7 +32,7 @@ const Notification = () => {
       />
       {messageChanged && (
         <div className={styles["message"]}>
-          <p>Message changed</p>
+          <p>{translation?translation["Message_changed"]:"Message changed"}</p>
         </div>
       )}
     </div>

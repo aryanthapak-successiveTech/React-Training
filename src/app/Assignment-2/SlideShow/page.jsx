@@ -1,6 +1,8 @@
 "use client";
 import styles from "@/app/Assignment-2/Styles/Slideshow.module.css";
-import { useEffect, useState } from "react";
+import { LanguageContext } from "@/context/LanguageContext";
+import { useContext, useEffect, useState } from "react";
+import { translator } from "../Translation";
 const images = [
   "/image-1.jpeg",
   "/image-2.jpeg",
@@ -18,15 +20,20 @@ const SlideShow = () => {
   const [timeInterval, setTimeInterval] = useState(1000);
   const [isPaused, setIsPaused] = useState(true);
   const [index, setIndex] = useState(0);
+  const {language}=useContext(LanguageContext);
+  const translation=translator[language];
   useEffect(() => {
-    if (index < images.length - 1 && !isPaused) {
-      let timer = setTimeout(() => {
-        setIndex(index + 1);
-      }, timeInterval);
-
-      return function () {
-        clearTimeout(timer);
-      };
+    if (!isPaused) {
+      if (index < images.length - 1) {
+        let timer = setTimeout(() => {
+          setIndex(index + 1);
+        }, timeInterval);
+        return function () {
+          clearTimeout(timer);
+        };
+      } else {
+        setIndex(0);
+      }
     }
   }, [index, isPaused, timeInterval]);
 
@@ -52,8 +59,12 @@ const SlideShow = () => {
           <option value={2}>2 sec</option>
           <option value={3}>3 sec</option>
         </select>
-        <button onClick={playHandler} className={styles["playbtn"]}>play</button>
-        <button onClick={pauseHandler} className={styles["pausebtn"]}>pause</button>
+        <button onClick={playHandler} className={styles["playbtn"]}>
+          {translation?translation["play"]:"play"}
+        </button>
+        <button onClick={pauseHandler} className={styles["pausebtn"]}>
+          {translation?translation["pause"]:"pause"}
+        </button>
       </div>
     </div>
   );

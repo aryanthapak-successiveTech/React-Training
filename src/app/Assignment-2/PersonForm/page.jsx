@@ -1,9 +1,11 @@
 "use client";
 
 import Input from "@/Components/Input";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "@/app/Assignment-2/Styles/PersonForm.module.css";
 import PersonDetails from "../Component/PersonDetails";
+import { translator } from "../Translation";
+import { LanguageContext } from "@/context/LanguageContext";
 
 const PersonForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -14,6 +16,10 @@ const PersonForm = () => {
   const [lastNameIsValid, setLastNameIsValid] = useState(true);
   const [ageIsValid, setAgeIsValid] = useState(true);
   const [showDetails, setShowDetails] = useState(false);
+
+  const {language}=useContext(LanguageContext);
+  const translation=translator[language];
+
   const firstNameChangeHandler = (event) => {
     setShowDetails(false);
     event.preventDefault();
@@ -59,19 +65,19 @@ const PersonForm = () => {
 
   const fields = [
     {
-      title: "First Name",
+      title: translation?translation["First_Name"]:"First Name",
       isRequired: true,
       type: "Text",
       onChangeHandler: firstNameChangeHandler,
     },
     {
-      title: "Last Name",
+      title: translation?translation["Last_Name"]:"Last Name",
       isRequired: true,
       type: "Text",
       onChangeHandler: lastNameChangeHandler,
     },
     {
-      title: "Age",
+      title: translation?translation["Age"]:"Age",
       isRequired: true,
       type: "Text",
       onChangeHandler: ageChangeHandler,
@@ -90,14 +96,14 @@ const PersonForm = () => {
         />
       ))}
       {!firstNameIsValid && (
-        <p className={styles["wrongInput"]}>First Name is invalid</p>
+        <p className={styles["wrongInput"]}>{translation?translation["First_Name_is_invalid"]:"First Name is invalid"}</p>
       )}
       {!lastNameIsValid && (
-        <p className={styles["wrongInput"]}>Last Name is invalid</p>
+        <p className={styles["wrongInput"]}>{translation?translation["Last_Name_is_invalid"]:"Last Name is invalid"}</p>
       )}
       {!ageIsValid && (
         <p className={styles["wrongInput"]}>
-          Enter a valid age between 0.5 and 100
+          {translation?translation["Age_invalid"]:"Enter a valid age between 0.5 and 100"}
         </p>
       )}
       <input type="submit" className={styles["submitButton"]} />
