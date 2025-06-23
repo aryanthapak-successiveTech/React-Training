@@ -61,5 +61,10 @@
 
 .subBar{
   display: flex;
-  
+}
+
+.items{
+  display: grid;
+  grid-template-columns: repeat(4,auto);
+  column-gap: 2rem;
 }
