@@ -1,18 +1,18 @@
 "use client"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LoginContext } from "../context/LoginContext";
 import { useRouter } from "next/navigation";
 
 const About = () => {
     const router=useRouter();
-    const {isLoggedIn}=useState(LoginContext);
+    const {isLoggedIn}=useContext(LoginContext);
     useEffect(()=>{
         if(!isLoggedIn){
             router.push("/Assignment-3/Login")
         }
 
         ()=>{};
-    },[])
+    },[isLoggedIn])
     
   return (
     <div>
