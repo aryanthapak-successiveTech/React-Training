@@ -2,31 +2,69 @@
   align-self: center;
 }
 
-.button{
+.button {
   padding: 1rem;
   border: none;
   border-radius: 2px;
   background-color: aquamarine;
 }
 
-.dark{
+.dark {
   color: white;
   background-color: black;
 }
 
-.light{
+.light {
   background-color: white;
   color: black;
 }
 
-.form{
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap:1rem;
+  gap: 1rem;
 }
 
-.options{
+.options {
   padding: 1rem;
+}
+
+.wrongInput {
+  color: red;
+}
+
+.errorPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navButton {
+  padding: 1rem;
+  border: none;
+  border-radius: 2px;
+  background-color: #f3f0ff;
+  width: 100%;
+}
+
+.subNavButton {
+  background-color: #a5d8ff;
+  padding: 1rem;
+  border: none;
+  border-radius: 2px;
+  width: 100%;
+}
+
+
+.subBar{
+  display: flex;
+}
+
+.items{
+  display: grid;
+  grid-template-columns: repeat(4,auto);
+  column-gap: 2rem;
 }
