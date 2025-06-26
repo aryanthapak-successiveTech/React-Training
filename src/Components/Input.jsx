@@ -1,6 +1,6 @@
 import styles from "@/styles/input.module.css";
 const Input = (props) => {
-  const { title, isRequired, type, onChangeHandler, isInvalid } = props;
+  const { title, isRequired, type, onChangeHandler, isInvalid ,value} = props;
   const classes = type != "radio" ? styles["textInput"] : "";
   return (
     <div className={classes}>
@@ -9,6 +9,7 @@ const Input = (props) => {
         type={type}
         id={title}
         required={isRequired}
+        value={value}
         onChange={onChangeHandler}
       />
     </div>
