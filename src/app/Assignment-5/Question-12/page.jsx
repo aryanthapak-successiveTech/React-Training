@@ -1,4 +1,3 @@
-"use client";
 import withDataFetching from "@/hoc/withDataFetching";
 
 const Page = ({ data }) => {
