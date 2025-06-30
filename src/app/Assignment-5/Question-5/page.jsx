@@ -1,21 +1,16 @@
-"use client";
-
+import { use } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
-
 const ShowData = () => {
-  const [data, setData] = useState([]);
 
   const fetchData = async () => {
     const fetchedData = await axios.get(
       "https://jsonplaceholder.typicode.com/users"
     );
 
-    setData(fetchedData.data);
+    return fetchedData.data;
   };
-  useEffect(() => {
-    fetchData();
-  }, []);
+  
+  const data=use(fetchData());
 
   return (
     <div className="flex-col">

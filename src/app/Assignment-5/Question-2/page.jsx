@@ -1,14 +1,21 @@
-"use client";
-import useFetchData from "@/hooks/useFetchData";
-import { useEffect } from "react";
+import { use } from "react";
+import ClientRetryComponent from "../Components/ClientRetryComponent";
 
 const ShowData = () => {
-  const { data, errors, fetchData } = useFetchData(
-    "https://jsonplaceholder.typicode.com/users"
-  );
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const fetchData = async () => {
+    try {
+      const res = await fetch("https://jsonplaceholder.typicode.com/users");
+      if(!res.ok){
+        throw new Error("Failed to fetch")
+      }
+      const data = await res.json();
+      return data;
+    } catch (err) {
+      return err;
+    }
+  };
+
+  const dataOrError = use(fetchData());
 
   return (
     <div className="flex-col">
@@ -21,8 +28,8 @@ const ShowData = () => {
         page. Additionally, provide a retry button so users can attempt to fetch
         the data again without reloading the entire page.
       </p>
-      {!errors &&
-        data.map((el, idx) => (
+      {Array.isArray(dataOrError) &&
+        dataOrError.map((el, idx) => (
           <div key={idx} className="text-center">
             <p>Name : {el.name}</p>
             <p>
@@ -33,13 +40,8 @@ const ShowData = () => {
           </div>
         ))}
 
-      {errors && (
-        <div className="form">
-          <p className="wrongInput">Failed to fetch the data</p>
-          <button className="button" onClick={fetchData}>
-            Retry
-          </button>
-        </div>
+      {!Array.isArray(dataOrError) && (
+        <ClientRetryComponent error={dataOrError.message}/>
       )}
     </div>
   );
