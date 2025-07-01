@@ -16,7 +16,7 @@ const ShowData = () => {
   };
 
   const dataOrError = use(fetchData());
-
+  console.log(dataOrError);
   return (
     <div className="flex-col">
       <p>

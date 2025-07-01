@@ -1,14 +1,13 @@
 import { use } from "react";
 
 const ShowData = () => {
-  const fetchData=async ()=>{
-        const res=await fetch("https://jsonplaceholder.typicode.com/users");
-        const data=await res.json();
-        return data;
-    }
+  const fetchData = async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/users");
+    const data = await res.json();
+    return data;
+  };
 
-    const data=use(fetchData());
-
+  const data = use(fetchData());
 
   return (
     <div className="flex-col">
