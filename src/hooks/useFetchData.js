@@ -1,11 +1,21 @@
-const { useState } = require("react");
+const { useState, useEffect } = require("react");
 
-const useFetchData = (fetchUrl, apiConfig) => {
+const useFetchData = (fetchUrl, apiConfig, initialError = false) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState(false);
+  useEffect(() => {
+    try{if (initialError) {
+      
+      throw new Error(initialError);
+    }}catch(err){
+      setErrors(true);
+    }
+    
+  },[]);
   const fetchData = async () => {
     try {
+      setErrors(false);
       setLoading(true);
       const res = await fetch(fetchUrl, apiConfig);
       const parsedData = await res.json();

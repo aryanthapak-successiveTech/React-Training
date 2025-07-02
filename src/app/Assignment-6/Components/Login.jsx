@@ -16,7 +16,7 @@ const Login = () => {
     const loginStatus = localStorage.getItem("isLoggedIn");
     setIsLoggedIn(loginStatus);
     if (loginStatus) {
-      router.push("/Assignment-5/Question-1");
+      router.push("/Assignment-6/Question-1");
     }
   }, [router]);
 
@@ -51,7 +51,7 @@ const Login = () => {
 
     localStorage.setItem("isLoggedIn", true);
     setIsLoggedIn(true);
-    router.push("/Assignment-5/Question-1");
+    router.push("/Assignment-6/Question-1");
   };
 
   return (
@@ -60,12 +60,14 @@ const Login = () => {
         title="Username"
         type="text"
         isRequired={true}
+        name="username"
         onChangeHandler={userNameChangeHandler}
       />
       {!isUserNameValid && <p className="wrongInput">Enter a valid username</p>}
       <Input
         title="Password"
         type="password"
+        name="password"
         isRequired={true}
         onChangeHandler={passwordChangeHandler}
       />

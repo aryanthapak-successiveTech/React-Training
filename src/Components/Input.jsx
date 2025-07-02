@@ -1,16 +1,17 @@
 import styles from "@/styles/input.module.css";
 const Input = (props) => {
-  const { title, isRequired, type, onChangeHandler, isInvalid ,value} = props;
+  const { title, isRequired, type, onChangeHandler, isInvalid ,value,name} = props;
   const classes = type != "radio" ? styles["textInput"] : "";
   return (
     <div className={classes}>
-      <label>{title}</label>
+      <label htmlFor={name}>{title}</label>
       <input
         type={type}
-        id={title}
+        id={name}
         required={isRequired}
         value={value}
         onChange={onChangeHandler}
+        name={name}
       />
     </div>
   );

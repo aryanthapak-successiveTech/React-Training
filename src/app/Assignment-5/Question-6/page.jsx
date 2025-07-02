@@ -1,14 +1,12 @@
-"use client";
-
 import axios from "axios";
-import { useEffect, useState } from "react";
+import ClientRetryUsingAxios from "../Components/ClientRetryUsingAxios";
+import { use } from "react";
 
 const ShowData = () => {
-  const [data, setData] = useState([]);
-  const [isError, setIsError] = useState(false);
+
   const fetchData = async () => {
     try {
-      setIsError(false);
+
       const fetchedData = await axios.get(
         "https://jsonplaceholder.typicode.com/users"
       );
@@ -17,15 +15,13 @@ const ShowData = () => {
         throw new Error("Failed to fetch");
       }
 
-      setData(fetchedData.data);
+      return fetchedData.data;
     } catch (err) {
-      setIsError(true);
-      console.log(err.message);
+      return err;
     }
   };
-  useEffect(() => {
-    fetchData();
-  }, []);
+  
+  const dataOrError=use(fetchData());
 
   return (
     <div className="flex-col">
@@ -37,8 +33,8 @@ const ShowData = () => {
         data again. Implement the retry logic in a Client Component to handle
         user interaction.
       </p>
-      {!isError &&
-        data.map((el, idx) => (
+      {Array.isArray(dataOrError) &&
+        dataOrError.map((el, idx) => (
           <div key={idx} className="text-center">
             <p>Name : {el.name}</p>
             <p>
@@ -49,13 +45,8 @@ const ShowData = () => {
           </div>
         ))}
 
-      {isError && (
-        <div className="form">
-          <p className="wrongInput">Failed to fetch the data</p>
-          <button className="button" onClick={fetchData}>
-            Retry
-          </button>
-        </div>
+      {!Array.isArray(dataOrError) && (
+        <ClientRetryUsingAxios error={dataOrError.message}/>
       )}
     </div>
   );
