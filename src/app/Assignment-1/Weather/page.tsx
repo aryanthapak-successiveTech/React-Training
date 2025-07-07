@@ -2,12 +2,13 @@
 import { useState } from "react";
 import Weather from "../Component/Weather";
 import styles from "@/app/Assignment-1/styles/weather.module.css";
+import React from "react";
 
 const WeatherPage = () => {
-  const [temperature, setTemperature] = useState(null);
+  const [temperature, setTemperature] = useState<number>(null);
 
-  const onTemperatureSelectHandler = (event) => {
-    setTemperature(event.target.value);
+  const onTemperatureSelectHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
+    setTemperature(Number(event.target.value));
   };
 
   return (

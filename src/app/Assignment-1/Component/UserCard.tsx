@@ -1,6 +1,13 @@
 import styles from "@/app/Assignment-1/styles/profile.module.css"
+import React from "react";
 
-const UserCard = (props) => {
+interface UserCardProps{
+  name:string,
+  email:string,
+  avatarUrl:string
+}
+
+const UserCard = (props:UserCardProps) => {
   const { name, email, avatarUrl } = props;
   return (
     <div>

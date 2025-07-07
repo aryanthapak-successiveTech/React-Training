@@ -1,4 +1,9 @@
-const TaskList = (props) => {
+import React from "react";
+
+interface TaskListProps{
+  tasks:Array<string>
+}
+const TaskList = (props:TaskListProps) => {
   const tasks = [...props.tasks];
   return (
     <div>

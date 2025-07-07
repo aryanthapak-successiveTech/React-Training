@@ -5,7 +5,7 @@ import styles from "@/app/Assignment-1/page.module.css";
 import { usePathname, useRouter } from "next/navigation";
 const Assignment1 = () => {
   const pathname=usePathname();
-  const router=useRouter()
+  const router=useRouter();
   return (
     <div className={styles["main"]}>
       <h2>Question-1</h2>

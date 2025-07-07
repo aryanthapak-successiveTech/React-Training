@@ -1,5 +1,11 @@
-const Weather=(props)=>{
-    const temperature=props.temperature
+import React from "react";
+
+interface WeatherProps{
+    temperature:number
+}
+
+const Weather:React.FC<WeatherProps>=({temperature})=>{
+
     return(
         <>
         {temperature<10 && <p>It's cold today!</p>}

@@ -1,6 +1,14 @@
+import React from "react";
 import UserCard from "../Component/UserCard";
 
-const users = [
+interface UserProperties{
+  id:number,
+  name:string,
+  email:string,
+  avatarUrl:string
+}
+
+const users:Array<UserProperties> = [
   {
     id: 1,
     name: "Aryan Thapak",

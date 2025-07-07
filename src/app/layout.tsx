@@ -6,6 +6,8 @@ import HtmlWrapper from "@/Components/HtmlWrapper";
 import { LanguageContextProvider } from "@/context/LanguageContext";
 import Navbar from "@/Components/Navbar";
 import { CartContextProvider } from "@/context/CartContext";
+import { ReactNode } from "react";
+import React from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +19,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }:{children:ReactNode}) {
   return (
     <LanguageContextProvider>
       <HtmlWrapper>

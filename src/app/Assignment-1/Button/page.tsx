@@ -1,15 +1,16 @@
 "use client";
 import { useState } from "react";
 import Button from "../Component/Button";
+import React from "react";
 
 const ButtonPage = () => {
-  const [color, setColor] = useState("");
-  const [buttonText, setButtonText] = useState("");
-  const colorSelectHandler = (event) => {
+  const [color, setColor] = useState<string>("");
+  const [buttonText, setButtonText] = useState<string>("");
+  const colorSelectHandler = (event:React.ChangeEvent<HTMLInputElement>):void => {
     setColor(event.target.value);
   };
 
-  const buttonTextHandler = (event) => {
+  const buttonTextHandler = (event:React.ChangeEvent<HTMLInputElement>):void => {
     setButtonText(event.target.value);
   };
 
