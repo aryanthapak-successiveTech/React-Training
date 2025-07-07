@@ -2,11 +2,11 @@
 import { useState } from "react";
 
 const DropDownPage = () => {
-  const [selectedOption, setSelectedOption] = useState("");
-  const options = ["Maggie", "Pasta", "Spagetti", "Garlic Bread", "Pizza"];
+  const [selectedOption, setSelectedOption] = useState<string>("");
+  const options:string[] = ["Maggie", "Pasta", "Spagetti", "Garlic Bread", "Pizza"];
   return (
     <div className="form">
-      <select onChange={(event) => setSelectedOption(event.target.value)}>
+      <select onChange={(event:React.ChangeEvent<HTMLSelectElement>) => setSelectedOption(event.target.value)}>
         {options.map((foodOption, idx) => (
           <option key={idx} value={foodOption}>
             {foodOption}

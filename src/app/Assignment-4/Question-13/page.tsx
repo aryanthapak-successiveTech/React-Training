@@ -32,10 +32,11 @@ const FormikForm = () => {
         handleChange,
         handleSubmit,
       }) => (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="flex-col">
           <OutlinedInput
             label="Email"
             isWrong={touched.email && !!errors.email}
+            type="string"
             onChangeHandler={handleChange("email")}
             onBlurHandler={handleBlur("email")}
             value={values.email}
@@ -54,13 +55,14 @@ const FormikForm = () => {
 
           <OutlinedInput
             label="Mobile No."
+            type="string"
             isWrong={touched.phone && !!errors.phone}
             onChangeHandler={handleChange("phone")}
             onBlurHandler={handleBlur("phone")}
             value={values.phone}
           />
           {errors.phone && touched.phone && <div>{errors.phone}</div>}
-          <button type="submit">Submit</button>
+          <button type="submit" className="button">Submit</button>
         </form>
       )}
     </Formik>

@@ -19,7 +19,7 @@ const RegistrationForm = () => {
   const [passwordMatch, setPasswordMatch] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
 
-  const submitHandler = (event) => {
+  const submitHandler = (event:React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     setIsEmailValid(true);
@@ -65,7 +65,7 @@ const RegistrationForm = () => {
       <Input
         title="First Name"
         type="text"
-        onChangeHandler={(event) => setFirstName(event.target.value)}
+        onChangeHandler={(event:React.ChangeEvent<HTMLInputElement>) => setFirstName(event.target.value)}
       />
       {!isFirstNameValid && (
         <p className="wrongInput">Type a valid first name</p>
@@ -73,25 +73,25 @@ const RegistrationForm = () => {
       <Input
         title="Last Name"
         type="text"
-        onChangeHandler={(event) => setLastName(event.target.value)}
+        onChangeHandler={(event:React.ChangeEvent<HTMLInputElement>) => setLastName(event.target.value)}
       />
       {!isLastNameValid && <p className="wrongInput">Type a valid last name</p>}
       <Input
         title="Email"
         type="text"
-        onChangeHandler={(event) => setEmail(event.target.value)}
+        onChangeHandler={(event:React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
       />
       {!isEmailValid && <p className="wrongInput">Type a valid email</p>}
       <Input
         title="Phone Number"
         type="text"
-        onChangeHandler={(event) => setPhone(event.target.value)}
+        onChangeHandler={(event:React.ChangeEvent<HTMLInputElement>) => setPhone(event.target.value)}
       />
       {!isPhoneValid && <p className="wrongInput">Type a valid Number</p>}
       <Input
         title="Password"
         type="password"
-        onChangeHandler={(event) => setPassword(event.target.value)}
+        onChangeHandler={(event:React.ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
       />
       {!isPasswordValid && (
         <p className="wrongInput">Type a valid Password of length 8 at least</p>
@@ -99,7 +99,7 @@ const RegistrationForm = () => {
       <Input
         title="Confirm Password"
         type="text"
-        onChangeHandler={(event) => setConfirmPassword(event.target.value)}
+        onChangeHandler={(event:React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(event.target.value)}
       />
       {!passwordMatch && (
         <p className="wrongInput">Confirm Password and Password don't match</p>

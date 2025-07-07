@@ -6,14 +6,14 @@ import { useState } from "react";
 const ConversionTemperaturePage = () => {
   const [celciusTemperature, setCelciusTemperature] = useState(0);
   const [fahrenheitTemperature, setFahrenheitTemperature] = useState(0);
-  const celciusChangeHandler=(event)=>{
-    setCelciusTemperature(event.target.value);
-    setFahrenheitTemperature((event.target.value*1.8)+32)
+  const celciusChangeHandler=(event:React.ChangeEvent<HTMLInputElement>)=>{
+    setCelciusTemperature(Number(event.target.value));
+    setFahrenheitTemperature((Number(event.target.value)*1.8)+32)
   }
 
-  const fahrenheitChangeHandler=(event)=>{
-    setFahrenheitTemperature(event.target.value);
-    setCelciusTemperature((event.target.value-32)*5/9)
+  const fahrenheitChangeHandler=(event:React.ChangeEvent<HTMLInputElement>)=>{
+    setFahrenheitTemperature(Number(event.target.value));
+    setCelciusTemperature((Number(event.target.value)-32)*5/9)
   }
   return (
     <div>

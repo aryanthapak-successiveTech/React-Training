@@ -19,19 +19,19 @@ const InformationPage = () => {
   const [isLastNameValid,setIsLastNameValid]= useState(true);
   const [isEmailValid,setIsEmailValid]= useState(true);
 
-  const breakFastChangeHandler = (event) => {
+  const breakFastChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = event.target.checked;
     setIsBreakfastChecked(isChecked);
     dispatch({ type: "food", payload: event.target.value, isChecked });
   };
 
-  const lunchChangeHandler = (event) => {
+  const lunchChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = event.target.checked;
     setIsLunchChecked(isChecked);
     dispatch({ type: "food", payload: event.target.value, isChecked });
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = (event:React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsFirstNameValid(true);
     setIsLastNameValid(true);
@@ -58,7 +58,7 @@ const InformationPage = () => {
       <Input
         title="First Name"
         type="text"
-        onChangeHandler={(event) =>
+        onChangeHandler={(event:React.ChangeEvent<HTMLInputElement>) =>
           dispatch({ type: "firstname", payload: event.target.value })
         }
         isRequired={true}
@@ -67,7 +67,7 @@ const InformationPage = () => {
       <Input
         title="Last Name"
         type="text"
-        onChangeHandler={(event) =>
+        onChangeHandler={(event:React.ChangeEvent<HTMLInputElement>) =>
           dispatch({ type: "lastname", payload: event.target.value })
         }
         isRequired={true}
@@ -76,7 +76,7 @@ const InformationPage = () => {
       <Input
         title="Email"
         type="email"
-        onChangeHandler={(event) =>
+        onChangeHandler={(event:React.ChangeEvent<HTMLInputElement>) =>
           dispatch({ type: "email", payload: event.target.value })
         }
         isRequired={true}
@@ -88,7 +88,7 @@ const InformationPage = () => {
           type="radio"
           name="gender"
           value="Male"
-          onClick={(event) =>
+          onSelect={(event:React.ChangeEvent<HTMLInputElement>) =>
             dispatch({ type: "gender", payload: event.target.value })
           }
           
@@ -98,7 +98,7 @@ const InformationPage = () => {
           type="radio"
           name="gender"
           value="Female"
-          onClick={(event) =>
+          onSelect={(event:React.ChangeEvent<HTMLInputElement>) =>
             dispatch({ type: "gender", payload: event.target.value })
           }
         />

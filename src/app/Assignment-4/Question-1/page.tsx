@@ -3,9 +3,9 @@ import Input from "@/Components/Input";
 import { useState } from "react";
 
 const ControlledInputPage = () => {
-  const [email, setEmail] = useState("");
-  const [isEmailValid, setIsEmailValid] = useState(true);
-  const onEmailChangeHandler = (event) => {
+  const [email, setEmail] = useState<string>("");
+  const [isEmailValid, setIsEmailValid] = useState<boolean>(true);
+  const onEmailChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     setIsEmailValid(true);
     const enteredEmail = event.target.value;
     setEmail(event.target.value);

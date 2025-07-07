@@ -1,9 +1,17 @@
 "use client";
 import * as React from "react";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridValueGetter } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
 
-const columns = [
+
+interface RowInterface {
+  id: number;
+  firstName: string;
+  lastName: string;
+  age: number;
+}
+
+const columns:GridColDef[] = [
   { field: "id", headerName: "ID", width: 70 },
   { field: "firstName", headerName: "First name", width: 130 },
   { field: "lastName", headerName: "Last name", width: 130 },
@@ -19,11 +27,11 @@ const columns = [
     description: "This column has a value getter and is not sortable.",
     sortable: false,
     width: 160,
-    valueGetter: (value, row) => `${row.firstName || ""} ${row.lastName || ""}`,
+    valueGetter: (params:{row:RowInterface}) => `${params?.row?.firstName || ""} ${params?.row?.lastName || ""}`,
   },
 ];
 
-const rows = [
+const rows :RowInterface[]= [
   { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
   { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
   { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },

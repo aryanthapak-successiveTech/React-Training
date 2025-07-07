@@ -8,7 +8,7 @@ interface ItemsInteface{
     desc:string,
     price:number,
     image:string,
-    addHandler:()=>void
+    addHandler?:()=>void
 }
 
 

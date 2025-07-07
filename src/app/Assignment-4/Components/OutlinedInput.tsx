@@ -1,21 +1,25 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-export default function OutlinedInput({
+
+interface OutlinedInputInterface {
+  onChangeHandler?: (event:React.ChangeEvent<HTMLInputElement>) => void;
+  onBlurHandler?: (event:React.FocusEvent<HTMLInputElement>) => void;
+  label: string;
+  isWrong?: boolean;
+  value?: string | number;
+  type: string;
+}
+
+const OutlinedInput: React.FC<OutlinedInputInterface> = ({
   onChangeHandler,
   onBlurHandler,
   label,
   isWrong,
   value,
-  type
-}) {
+  type,
+}) => {
   return (
-    <Box
-      component="form"
-      sx={{ "& > :not(style)": { m: 1, width: "25ch" } }}
-      noValidate
-      autoComplete="off"
-    >
       <TextField
         id="outlined-basic"
         label={label}
@@ -26,6 +30,7 @@ export default function OutlinedInput({
         error={isWrong}
         type={type}
       />
-    </Box>
   );
-}
+};
+
+export default OutlinedInput;

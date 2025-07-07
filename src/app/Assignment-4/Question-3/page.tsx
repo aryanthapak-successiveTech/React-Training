@@ -3,10 +3,10 @@ import Input from "@/Components/Input";
 import { useState } from "react";
 
 const ShowInput=()=>{
-    const [text,setText]=useState("");
-    const [showText,setShowText]=useState(false);
+    const [text,setText]=useState<string>("");
+    const [showText,setShowText]=useState<boolean>(false);
 
-    const textChangeHandler=(event)=>{
+    const textChangeHandler=(event:React.ChangeEvent<HTMLInputElement>)=>{
         setText(event.target.value);
     }
 

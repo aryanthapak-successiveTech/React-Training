@@ -4,21 +4,21 @@ import OutlinedInput from "../Components/OutlinedInput";
 import { validateEmail, validateName } from "@/lib/utils";
 
 const ValidationForm = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
 
-  const [firstNameIsWrong, setFirstNameIsWrong] = useState(false);
+  const [firstNameIsWrong, setFirstNameIsWrong] = useState<boolean>(false);
 
-  const [lastNameIsWrong, setLastNameIsWrong] = useState(false);
+  const [lastNameIsWrong, setLastNameIsWrong] = useState<boolean>(false);
 
-  const [emailIsWrong, setEmailIsWrong] = useState(false);
+  const [emailIsWrong, setEmailIsWrong] = useState<boolean>(false);
 
   const inputFields = [
     {
       label: "First Name",
       isWrong: firstNameIsWrong,
-      onChangeHandler: (event) => {
+      onChangeHandler: (event:React.ChangeEvent<HTMLInputElement>) => {
         setFirstNameIsWrong(false);
         if (!validateName(event.target.value)) {
           setFirstNameIsWrong(true);
@@ -29,7 +29,7 @@ const ValidationForm = () => {
     {
       label: "Last Name",
       isWrong: lastNameIsWrong,
-      onChangeHandler: (event) => {
+      onChangeHandler: (event:React.ChangeEvent<HTMLInputElement>) => {
         setLastNameIsWrong(false);
         if (!validateName(event.target.value)) {
           setLastNameIsWrong(true);
@@ -40,7 +40,7 @@ const ValidationForm = () => {
     {
       label: "Email",
       isWrong: emailIsWrong,
-      onChangeHandler: (event) => {
+      onChangeHandler: (event:React.ChangeEvent<HTMLInputElement>) => {
         setEmailIsWrong(false);
         if (!validateEmail(email)) {
           setEmailIsWrong(true);
@@ -57,6 +57,7 @@ const ValidationForm = () => {
           key={idx}
           label={input.label}
           onChangeHandler={input.onChangeHandler}
+          type="string"
           isWrong={input.isWrong}
         />
       ))}

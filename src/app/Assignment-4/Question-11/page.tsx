@@ -30,7 +30,7 @@ export default function FormDialog() {
         slotProps={{
           paper: {
             component: 'form',
-            onSubmit: (event) => {
+            onSubmit: (event:React.ChangeEvent<HTMLFormElement>) => {
               event.preventDefault();
               const formData = new FormData(event.currentTarget);
               const formJson = Object.fromEntries(formData.entries());

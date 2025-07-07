@@ -1,3 +1,17 @@
+interface InformationInterface{
+  firstName:string,
+  lastName:string,
+  email:string,
+  gender:string,
+  foodPreferences:string[]
+}
+
+interface ActionInterface{
+  type:string,
+  payload:string,
+  isChecked?:boolean
+}
+
 export const informationPageState = {
   firstName: "",
   lastName: "",
@@ -6,7 +20,7 @@ export const informationPageState = {
   foodPreferences: [],
 };
 
-export const informationReducer = (state, action) => {
+export const informationReducer = (state:InformationInterface, action:ActionInterface) => {
   if (action.type === "firstname") {
     return { ...state, firstName: action.payload };
   }

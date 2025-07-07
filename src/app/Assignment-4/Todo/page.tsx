@@ -5,10 +5,10 @@ import { useState } from "react";
 import styles from "@/app/Assignment-2/Styles/Todo.module.css";
 
 const TodoList = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<string[]>([]);
   const [task, setTask] = useState("");
 
-  const taskChangeHandler = (event) => {
+  const taskChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     setTask(event.target.value);
   };
 
@@ -20,7 +20,7 @@ const TodoList = () => {
 
   };
 
-  const deleteHandler = (id) => {
+  const deleteHandler = (id:number) => {
     const updatedTasks = tasks.filter((el, idx, arr) => {
       return idx != id;
     });

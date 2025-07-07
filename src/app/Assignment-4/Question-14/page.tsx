@@ -39,6 +39,7 @@ const ValidationForm = () => {
       }) => (
         <form onSubmit={handleSubmit}>
           <OutlinedInput
+            type="email"
             label="Email"
             isWrong={touched.email && !!errors.email}
             onChangeHandler={handleChange("email")}
@@ -48,6 +49,7 @@ const ValidationForm = () => {
           {errors.email && touched.email && <div>{errors.email}</div>}
 
           <OutlinedInput
+            type="text"
             label="First Name"
             isWrong={touched.firstName && !!errors.firstName}
             onChangeHandler={handleChange("firstName")}
@@ -57,6 +59,7 @@ const ValidationForm = () => {
           {errors.firstName && touched.firstName && <div>{errors.firstName}</div>}
 
           <OutlinedInput
+            type="text"
             label="Last Name"
             isWrong={touched.lastName && !!errors.lastName}
             onChangeHandler={handleChange("lastName")}

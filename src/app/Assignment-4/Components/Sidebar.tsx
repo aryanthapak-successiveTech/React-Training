@@ -5,9 +5,9 @@ import Button from "@mui/material/Button";
 import { useRouter } from "next/navigation";
 
 export default function Sidebar() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState<boolean>(false);
   const router = useRouter();
-  const toggleDrawer = (newOpen) => () => {
+  const toggleDrawer = (newOpen:boolean) => () => {
     setOpen(newOpen);
   };
 

@@ -37,7 +37,7 @@ const ProductsArray = [
 
 const SearchPage = () => {
   const [products, setProducts] = useState([...ProductsArray]);
-  const searchHandler = (event) => {
+  const searchHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = event.target.value;
     if (searchTerm.trim().length === 0) {
       setProducts([...ProductsArray]);
