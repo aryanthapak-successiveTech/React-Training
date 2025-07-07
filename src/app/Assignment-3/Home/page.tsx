@@ -2,7 +2,7 @@ const HomePage = () => {
   return (
     <div>
         <h2>Homepage</h2>
-        <h3>Welcom Aryan!</h3>
+        <h3>Welcome Aryan!</h3>
         <p>Following are Questions</p>
       <p>
         create two components: a parent component that acts as a provider and a

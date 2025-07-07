@@ -1,5 +1,5 @@
 "use client"
-import { createContext, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 
 export const LoginContext=createContext({
     isLoggedIn:false,
@@ -7,7 +7,7 @@ export const LoginContext=createContext({
     logOutUser:()=>{}
 });
 
-export const LoginContextProvider=({children})=>{
+export const LoginContextProvider=({children}:{children:ReactNode})=>{
     const [isLoggedIn,setIsLoggedIn]=useState(false);
     const loginUser=()=>{
         setIsLoggedIn(true);

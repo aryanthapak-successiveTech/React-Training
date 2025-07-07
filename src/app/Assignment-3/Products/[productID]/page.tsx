@@ -34,10 +34,18 @@ const ProductsData = [
   },
 ];
 
+interface ProductInterface{
+  id:number,
+  name:string,
+  desc:string,
+  price:number,
+  image:string
+}
+
 const ProductDetails = () => {
   const router = useRouter();
   const { productID } = useParams();
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState<ProductInterface|null>(null);
 
   useEffect(() => {
     const productIdx = ProductsData.findIndex(

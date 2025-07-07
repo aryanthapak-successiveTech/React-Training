@@ -9,12 +9,12 @@ const Welcome = () => {
   const [password, setPassword] = useState("");
   const [isUserNameValid,setIsUserNameValid]=useState(true);
   const [isPasswordValid,setIsPasswordValid]=useState(true);
-  const userNameChangeHandler = (event) => {
+  const userNameChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     logOutUser();
     setUserName(event.target.value);
   };
 
-  const passwordChangeHandler = (event) => {
+  const passwordChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     logOutUser();
     setPassword(event.target.value);
   };

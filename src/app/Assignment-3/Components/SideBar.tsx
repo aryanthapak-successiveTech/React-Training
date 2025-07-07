@@ -1,6 +1,6 @@
 "use client";
 import styles from "@/app/Assignment-3/styles/SideBar.module.css";
-import { usePathname, useRouter } from "next/navigation";
+import {  useRouter } from "next/navigation";
 import { useContext } from "react";
 import { LoginContext } from "../context/LoginContext";
 

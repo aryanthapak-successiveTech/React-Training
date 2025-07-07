@@ -19,15 +19,15 @@ const Login = () => {
     }
   },[isLoggedIn])
 
-  const userNameChangeHandler = (event) => {
+  const userNameChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     setUserName(event.target.value);
   };
 
-  const passwordChangeHandler = (event) => {
+  const passwordChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
-  const onLoginHandler=(event)=>{
+  const onLoginHandler=(event:React.ChangeEvent<HTMLFormElement>)=>{
     event.preventDefault();
     setIsWrongDetails(false);
     setIsUserNameValid(true);
