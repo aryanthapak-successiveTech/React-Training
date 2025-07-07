@@ -1,6 +1,11 @@
 "use client"
 import { useMemo, useState } from "react";
 
+interface EmployeeInterface{
+  name:string,
+  salary:number,
+}
+
 const employeesData = [
   { name: "Employee 1", salary: 30000 },
   { name: "Employee 2", salary: 35000 },
@@ -8,9 +13,9 @@ const employeesData = [
   { name: "Employee 4", salary: 40000 },
 ];
 const EmployeeAveragePage = () => {
-  const [employees, setEmployees] = useState(employeesData);
-  const memoAvgSalary = useMemo(() => {
-    const totalSalary = employees.reduce((acc,emp) => {
+  const [employees, setEmployees] = useState<EmployeeInterface[]>(employeesData);
+  const memoAvgSalary= useMemo<number>(() => {
+    const totalSalary:number = employees.reduce((acc,emp) => {
       return acc + emp.salary;
     }, 0);
 

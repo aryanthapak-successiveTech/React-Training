@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "@/styles/counter.module.css";
 import Input from "@/Components/Input";
 import { LanguageContext } from "@/context/LanguageContext";
@@ -21,9 +21,9 @@ const CounterWithStep = () => {
     setCounter((prev) => prev - step);
   };
 
-  const stepChangeHandler = (event) => {
+  const stepChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     setStepIsValid(true);
-    if (isNaN(event.target.value)) {
+    if (isNaN(Number(event.target.value))) {
       setStepIsValid(false);
       return;
     }

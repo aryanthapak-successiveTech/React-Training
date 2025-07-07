@@ -4,13 +4,13 @@ import styles from "@/app/Assignment-2/Styles/generateRandom.module.css"
 import { LanguageContext } from "@/context/LanguageContext";
 import { translator } from "../Translation";
 const GenerateRandom=()=>{
-    const [randomNumber,setRandomNumber]=useState(0);
+    const [randomNumber,setRandomNumber]=useState<number>(0);
     const {language}=useContext(LanguageContext);
     const translation=translator[language];
     useEffect(()=>{
         setRandomNumber(Math.floor(Math.random()*100))
     },[])
-    const generateRandomNumber=()=>{
+    const generateRandomNumber=():void=>{
         setRandomNumber(Math.floor(Math.random()*100))
     }   
 

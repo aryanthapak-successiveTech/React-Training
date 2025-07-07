@@ -1,23 +1,40 @@
 "use client";
-import { createContext, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
+interface ItemProperties{
+  id:number,
+  name:string,
+  desc:string,
+  price:number,
+  count?:number
+}
+
+interface ItemPropertiesWithCount extends ItemProperties {
+  count: number;
+}
+
+interface CartContextInterface{
+  items: Array<ItemProperties>,
+  addItem: (item:ItemProperties) => void,
+  removeItem: (id: number) =>void,
+  price: number,
+  totalCount: number,
+}
 
 const initialState = {
-  id: 0,
   items: [],
-  addItem: () => {},
-  removeItem: () => {},
-  totalPrice: 0,
-  count: 0,
+  addItem: (item:ItemProperties) => {},
+  removeItem: (id: number) => {},
+  price: 0,
   totalCount: 0,
 };
 
-export const CartContext = createContext(initialState);
+export const CartContext = createContext<CartContextInterface>(initialState);
 
-export const CartContextProvider = ({ children }) => {
-  const [items, setItems] = useState([]);
+export const CartContextProvider = ({ children }:{children:ReactNode}) => {
+  const [items, setItems] = useState<ItemPropertiesWithCount[]>([]);
   const [price, setPrice] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
-  const addItemInCart = (item, id) => {
+  const addItemInCart = (item:ItemProperties) => {
     setItems((prevItems) => {
       const idx = prevItems.findIndex((i) => i.id === item.id);
 
@@ -37,8 +54,8 @@ export const CartContextProvider = ({ children }) => {
     setTotalCount((prev) => prev + 1);
   };
 
-  const removeItemInCart = (id) => {
-    let removedItemPrice;
+  const removeItemInCart = (id:number) => {
+    let removedItemPrice:number=0;
     setItems((prevItems) => {
       const idx = prevItems.findIndex((item) => item.id === id);
       removedItemPrice=items[idx].price;
@@ -71,7 +88,7 @@ export const CartContextProvider = ({ children }) => {
         removeItem: removeItemInCart,
         totalCount,
       }}
-    >
+>
       {children}
     </CartContext.Provider>
   );

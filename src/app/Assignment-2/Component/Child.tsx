@@ -1,4 +1,11 @@
-const Child = ({ count,increaseCount, resetCount }) => {
+
+interface ChildInterface{
+  count:number,
+  increaseCount:()=>void,
+  resetCount:()=>void
+}
+
+const Child: React.FC<ChildInterface>=({ count,increaseCount, resetCount }) => {
   return (
     <div>
       <h3>Count :</h3>

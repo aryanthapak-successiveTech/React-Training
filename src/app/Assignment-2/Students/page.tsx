@@ -1,10 +1,11 @@
 "use client"
 import { useMemo, useState } from "react";
 
-const Students=()=>{
-    const [students,setStudents]=useState(["Aryan","Aman","Adarsh"]);
 
-    const memoStudents=useMemo(()=>{
+const Students=()=>{
+    const [students,setStudents]=useState<string[]>(["Aryan","Aman","Adarsh"]);
+
+    const memoStudents=useMemo<string[]>(()=>{
         return students;
     },[students])
     

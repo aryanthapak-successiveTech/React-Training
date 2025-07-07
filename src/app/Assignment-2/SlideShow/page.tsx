@@ -45,8 +45,8 @@ const SlideShow = () => {
     setIsPaused(false);
   };
 
-  const intervalHandler = (event) => {
-    setTimeInterval(event.target.value * 1000);
+  const intervalHandler = (event:React.ChangeEvent<HTMLSelectElement>) => {
+    setTimeInterval(Number(event.target.value) * 1000);
   };
 
   return (
@@ -54,7 +54,7 @@ const SlideShow = () => {
       <img className={styles["images"]} src={images[index]} />
 
       <div className={styles["options"]}>
-        <select onClick={intervalHandler}>
+        <select onChange={intervalHandler}>
           <option value={1}>1 sec</option>
           <option value={2}>2 sec</option>
           <option value={3}>3 sec</option>

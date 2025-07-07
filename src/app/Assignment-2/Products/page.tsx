@@ -12,8 +12,8 @@ const Products = () => {
   const translation=translator[language];
 
   const { addItem } = useContext(CartContext);
-  const onAddHandler = (id) => {
-    addItem(ProductsArray[id], id);
+  const onAddHandler = (id:number) => {
+    addItem(ProductsArray[id]);
   };
 
   const ProductsArray = [

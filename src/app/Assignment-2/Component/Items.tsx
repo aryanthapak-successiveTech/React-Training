@@ -2,7 +2,17 @@ import styles from "@/app/Assignment-2/Styles/Items.module.css"
 import { translator } from "../Translation";
 import { useContext } from "react";
 import { LanguageContext } from "@/context/LanguageContext";
-const Items=({name,desc,price,image,addHandler})=>{
+
+interface ItemsInteface{
+    name:string,
+    desc:string,
+    price:number,
+    image:string,
+    addHandler:()=>void
+}
+
+
+const Items:React.FC<ItemsInteface>=({name,desc,price,image,addHandler})=>{
     const {language}=useContext(LanguageContext);
     const translation=translator[language];
     return(

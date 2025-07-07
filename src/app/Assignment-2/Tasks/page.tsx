@@ -13,7 +13,7 @@ const initialTasks = [
 const Tasks = () => {
   const [completeTasks, setCompleteTasks] = useState(initialTasks);
 
-  const completeTask = useCallback((id) => {
+  const completeTask = useCallback((id:number) => {
     setCompleteTasks((prevTasks) =>
       prevTasks.map((task) =>
         task.id === id ? { ...task, completed: true } : task

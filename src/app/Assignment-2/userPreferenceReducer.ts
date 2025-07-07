@@ -1,10 +1,15 @@
+interface ActionInterface{
+    type:string,
+    payload:string
+}
+
 export const userPreferenceState={
     bedRoom:"",
     food:"",
     tenure:""
 };
 
-export const userReducer=(state=userPreferenceState,action)=>{
+export const userReducer=(state=userPreferenceState,action:ActionInterface)=>{
     if(action.type==="bedroom"){
         return {...state,bedRoom:action.payload};
     }

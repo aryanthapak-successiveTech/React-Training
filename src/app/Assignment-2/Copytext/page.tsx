@@ -6,7 +6,7 @@ import { useState } from "react";
 const CopyText=()=>{
     const [text,setText]=useState("");
     const {isCopied,copy}=useClipboard();
-    const textChangeHandler=(event)=>{
+    const textChangeHandler=(event:React.ChangeEvent<HTMLInputElement>)=>{
         setText(event.target.value);
     }
     console.log(isCopied)

@@ -1,13 +1,13 @@
 export const useLocalStorage=()=>{
-    const storeData=(key,payload)=>{
+    const storeData=(key:string,payload:string)=>{
         localStorage.setItem(key,payload);
     }
 
-    const removeData=(key)=>{
+    const removeData=(key:string)=>{
         localStorage.removeItem(key);
     }
 
-    const getData=(key)=>{
+    const getData=(key:string)=>{
         localStorage.getItem(key);
     }
 

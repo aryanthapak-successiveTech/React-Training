@@ -5,8 +5,8 @@ import styles from "@/app/Assignment-2/Styles/Notification.module.css";
 import { LanguageContext } from "@/context/LanguageContext";
 import { translator } from "../Translation";
 const Notification = () => {
-  const [message, setMessage] = useState("");
-  const [messageChanged, setMessageChanged] = useState(false);
+  const [message, setMessage] = useState<string>("");
+  const [messageChanged, setMessageChanged] = useState<boolean>(false);
   const {language}=useContext(LanguageContext);
   const translation=translator[language]
   useEffect(()=>{
@@ -15,7 +15,7 @@ const Notification = () => {
     }, 5000);
     ()=>clearTimeout(timer);
   },[message])
-  const onMessageChangeHandler = (event) => {
+  const onMessageChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.value.length === 0) {
       return;
     }

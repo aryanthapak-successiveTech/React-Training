@@ -41,7 +41,7 @@ const UserPreference = () => {
             type="radio"
             name={preference.category}
             value={preference.option1}
-            onClick={(event)=>dispatch({
+            onChange={(event:React.ChangeEvent<HTMLInputElement>)=>dispatch({
               type: preference.category.toLowerCase().split(" ").join(""),
               payload:event.target.value
             })}
@@ -51,7 +51,7 @@ const UserPreference = () => {
             type="radio"
             name={preference.category}
             value={preference.option2}
-            onClick={(event)=>dispatch({
+            onChange={(event:React.ChangeEvent<HTMLInputElement>)=>dispatch({
               type: preference.category.toLowerCase().split(" ").join(""),
               payload:event.target.value
             })}
@@ -61,7 +61,7 @@ const UserPreference = () => {
             type="radio"
             name={preference.category}
             value={preference.option3}
-            onClick={(event)=>dispatch({
+            onChange={(event:React.ChangeEvent<HTMLInputElement>)=>dispatch({
               type: preference.category.toLowerCase().split(" ").join(""),
               payload:event.target.value
             })}

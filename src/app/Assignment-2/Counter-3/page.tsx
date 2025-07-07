@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import Child from "../Component/Child";
 
 const Counter3 = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number>(0);
   const increaseCount = useCallback(() => {
     setCount((prev) => prev + 1);
   }, []);

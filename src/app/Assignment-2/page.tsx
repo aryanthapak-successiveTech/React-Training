@@ -2,6 +2,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { QuestionsList } from "./Constant";
 import styles from "@/app//Assignment-2/page.module.css"
+import React from "react";
 const Home = () => {
     const pathName=usePathname();
     const router=useRouter();

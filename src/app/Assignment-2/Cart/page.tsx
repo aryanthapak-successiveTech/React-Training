@@ -7,6 +7,9 @@ import { ThemeContext } from "@/context/ThemeContext";
 import { useRouter } from "next/navigation";
 import { LanguageContext } from "@/context/LanguageContext";
 import { translator } from "../Translation";
+import React from "react";
+
+
 
 const Cart = () => {
   const { items, price, addItem, removeItem } = useContext(CartContext);

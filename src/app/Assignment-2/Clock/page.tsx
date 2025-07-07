@@ -2,12 +2,12 @@
 import { useEffect, useState } from "react";
 import styles from "@/app/Assignment-2/Styles/clock.module.css"
 const ClockPage = () => {
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
+  const [hours, setHours] = useState<number>(0);
+  const [minutes, setMinutes] = useState<number>(0);
+  const [seconds, setSeconds] = useState<number>(0);
 
   useEffect(() => {
-    const currDate = new Date();
+    const currDate:Date = new Date();
 
     let timer=setTimeout(() => {
       setHours(currDate.getHours());

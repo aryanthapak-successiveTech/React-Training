@@ -5,7 +5,7 @@ import styles from "@/app/Assignment-1/styles/weather.module.css";
 import React from "react";
 
 const WeatherPage = () => {
-  const [temperature, setTemperature] = useState<number>(null);
+  const [temperature, setTemperature] = useState<number|null>(null);
 
   const onTemperatureSelectHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     setTemperature(Number(event.target.value));

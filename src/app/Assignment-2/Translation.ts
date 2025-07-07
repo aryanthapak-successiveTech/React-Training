@@ -1,4 +1,13 @@
-export const translator = {
+
+interface TranslationInterface{
+  [key:string]:string;
+}
+
+interface Translator{
+  [languageCode:string]:TranslationInterface
+}
+
+export const translator:Translator = {
   es: {
     Name: "Nombre",
     Description: "Descripción",

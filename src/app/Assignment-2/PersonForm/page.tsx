@@ -20,26 +20,26 @@ const PersonForm = () => {
   const {language}=useContext(LanguageContext);
   const translation=translator[language];
 
-  const firstNameChangeHandler = (event) => {
+  const firstNameChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     setShowDetails(false);
     event.preventDefault();
     setFirstName(event.target.value);
   };
 
-  const lastNameChangeHandler = (event) => {
+  const lastNameChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     setShowDetails(false);
     event.preventDefault();
     setLastName(event.target.value);
   };
 
-  const ageChangeHandler = (event) => {
+  const ageChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     setShowDetails(false);
     event.preventDefault();
 
-    setAge(event.target.value);
+    setAge(Number(event.target.value));
   };
 
-  const onSubmitHandler = (event) => {
+  const onSubmitHandler = (event:React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     setFirstNameIsValid(true);
     setLastNameIsValid(true);

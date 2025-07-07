@@ -4,24 +4,24 @@ import { useState } from "react";
 import { useTimer } from "../hooks/useTimer";
 
 const Timer = () => {
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-  const [showTimer, setShowTimer] = useState(false);
+  const [hours, setHours] = useState<number>(0);
+  const [minutes, setMinutes] = useState<number>(0);
+  const [seconds, setSeconds] = useState<number>(0);
+  const [showTimer, setShowTimer] = useState<boolean>(false);
   const {remainingHours,remainingMinutes,remainingSeconds,startTimer} = useTimer();
   const onShowHandlder = () => {
     startTimer(hours,minutes,seconds)
     setShowTimer(true);
   };
-  let hoursInput = new Array(25);
+  let hoursInput:number[] = new Array(25);
   hoursInput.fill(0);
   hoursInput = hoursInput.map((ele, idx) => idx);
 
-  let minutesInput = new Array(61);
+  let minutesInput:number[] = new Array(61);
   minutesInput.fill(0);
   minutesInput = minutesInput.map((ele, idx) => idx);
 
-  let secondsInput = new Array(61);
+  let secondsInput:number[] = new Array(61);
   secondsInput.fill(0);
   secondsInput = secondsInput.map((ele, idx) => idx);
 

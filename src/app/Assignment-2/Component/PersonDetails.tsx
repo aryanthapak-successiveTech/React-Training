@@ -1,5 +1,12 @@
 import styles from "@/app/Assignment-2/Styles/PersonDetails.module.css"
-const PersonDetails=({firstName,lastName,age})=>{
+
+interface PersonDetailsInterface{
+    firstName:string,
+    lastName:string,
+    age:number
+}
+
+const PersonDetails:React.FC<PersonDetailsInterface>=({firstName,lastName,age})=>{
     return(
         <div>
             <div className={styles["details"]}>

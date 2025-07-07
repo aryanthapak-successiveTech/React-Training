@@ -1,5 +1,12 @@
 import styles from "@/app/Assignment-2/Styles/Todo.module.css";
-const TaskItem = ({ task, completed, completeHandler }) => {
+
+interface TaskItemInterface{
+  task:string,
+  completed:boolean,
+  completeHandler:()=>void
+}
+
+const TaskItem:React.FC<TaskItemInterface> = ({ task, completed, completeHandler }) => {
   return (
     <div className={styles["tasks"]}>
       <h3>{task}</h3>

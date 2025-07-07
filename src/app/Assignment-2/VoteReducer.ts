@@ -1,12 +1,20 @@
-export const votes={
-    BJP:0,
-    Congress:0,
-    BSP:0,
-    SP:0,
-    AAP:0
+interface ActionInterface{
+    type:string
+}
+interface VotesInterface{
+    [key:string]:number
+}
+
+export const votes:VotesInterface={
+    "BJP":0,
+    "Congress":0,
+    "BSP":0,
+    "SP":0,
+    "AAP":0
 };
 
-export const voteReducer=(state=votes,action)=>{
+
+export const voteReducer=(state=votes,action:ActionInterface)=>{
     
     if(action.type==="BJP"){
         return {...state,BJP:state.BJP+1};

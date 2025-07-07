@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 export const useClipboard = () => {
-  const [copied, setCopied] = useState(false);
-  const copy = (textToCopy) => {
+  const [copied, setCopied] = useState<boolean>(false);
+  const copy = (textToCopy:string) => {
     const textArea = document.createElement("textarea");
     textArea.value = textToCopy;
     document.body.appendChild(textArea);
@@ -20,5 +20,5 @@ export const useClipboard = () => {
 
   console.log(copied)
 
-  return { copied, copy };
+  return { isCopied:copied, copy };
 };
