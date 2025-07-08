@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import OutlinedInput from "../Components/OutlinedInput.jsx";
+import OutlinedInput from "../Components/OutlinedInput";
 
 const AddData = () => {
   const firstNameRef = useRef<HTMLInputElement>(null);
