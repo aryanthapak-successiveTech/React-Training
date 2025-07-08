@@ -3,9 +3,9 @@ import { useState } from "react";
 import Button from "../Components/Button";
 
 const ShowButtons = () => {
-  const [isPrimaryClicked, setIsPrimaryClicked] = useState(false);
-  const [isSecondaryClicked, setIsSecondaryClicked] = useState(false);
-  const [isDangerClicked, setIsDangerClicked] = useState(false);
+  const [isPrimaryClicked, setIsPrimaryClicked] = useState<boolean>(false);
+  const [isSecondaryClicked, setIsSecondaryClicked] = useState<boolean>(false);
+  const [isDangerClicked, setIsDangerClicked] = useState<boolean>(false);
 
   const primaryClickHandler = () => {
     setIsSecondaryClicked(false);

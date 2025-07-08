@@ -2,8 +2,20 @@ import axios from "axios";
 import ClientRetryUsingAxios from "../Components/ClientRetryUsingAxios";
 import { use } from "react";
 
-const ShowData = () => {
+interface AddressInterface{
+  street:string,
+  suite:string,
+  city:string
+}
 
+interface DataInterface{
+  name:string,
+  address:AddressInterface
+  phone:string
+}
+
+const ShowData = () => {
+ 
   const fetchData = async () => {
     try {
 
@@ -21,8 +33,7 @@ const ShowData = () => {
     }
   };
   
-  const dataOrError=use(fetchData());
-
+  const dataOrError:DataInterface[]|Error=use(fetchData());
   return (
     <div className="flex-col">
       <p>

@@ -4,6 +4,18 @@ import PaginationComp from "../Components/Pagination";
 import { useEffect, useState } from "react";
 import Loader from "../Components/Loader";
 
+interface AddressInterface{
+  street:string,
+  suite:string,
+  city:string
+}
+
+interface DataInterface{
+  name:string,
+  address:AddressInterface
+  phone:string
+}
+
 const ShowDataPage = () => {
   const { data, errors, loading, fetchData } = useFetchData(
     "https://jsonplaceholder.typicode.com/users"
@@ -11,7 +23,7 @@ const ShowDataPage = () => {
   const pageCount = Math.ceil(data.length / 3);
   const [shownData, setShownData] = useState([...data]);
   const [page, setPage] = useState(1);
-  const handleChange = (event, value) => {
+  const handleChange = (value:number) => {
     setPage(value);
   };
 
@@ -34,7 +46,7 @@ const ShowDataPage = () => {
       </p>
       {loading && <Loader />}
       {!errors &&
-        shownData.map((el, idx) => (
+        shownData.map((el:DataInterface, idx:number) => (
           <div key={idx} className="text-center">
             <p>Name : {el.name}</p>
             <p>

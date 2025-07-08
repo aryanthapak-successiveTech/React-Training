@@ -13,22 +13,22 @@ const Login = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const loginStatus = localStorage.getItem("isLoggedIn");
+    const loginStatus:boolean = Boolean(localStorage.getItem("isLoggedIn"));
     setIsLoggedIn(loginStatus);
     if (loginStatus) {
       router.push("/Assignment-5/Question-1");
     }
   }, [router]);
 
-  const userNameChangeHandler = (event) => {
+  const userNameChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     setUserName(event.target.value);
   };
 
-  const passwordChangeHandler = (event) => {
+  const passwordChangeHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
-  const onLoginHandler = (event) => {
+  const onLoginHandler = (event:React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsWrongDetails(false);
     setIsUserNameValid(true);
@@ -49,7 +49,7 @@ const Login = () => {
       return;
     }
 
-    localStorage.setItem("isLoggedIn", true);
+    localStorage.setItem("isLoggedIn", "true");
     setIsLoggedIn(true);
     router.push("/Assignment-5/Question-1");
   };

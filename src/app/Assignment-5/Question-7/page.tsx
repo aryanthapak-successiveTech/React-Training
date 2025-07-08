@@ -1,12 +1,12 @@
 "use client";
 
 import { useRef, useState } from "react";
-import OutlinedInput from "../Components/OutlinedInput";
+import OutlinedInput from "../Components/OutlinedInput.jsx";
 
 const AddData = () => {
-  const firstNameRef = useRef();
-  const lastNameRef = useRef();
-  const emailRef = useRef();
+  const firstNameRef = useRef<HTMLInputElement>(null);
+  const lastNameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
 
   const [isFirstNameValid, setIsFirstNameValid] = useState(true);
 
@@ -17,16 +17,16 @@ const AddData = () => {
   const [successful, setSuccessFul] = useState(false);
 
   const [error, setError] = useState(false);
-  const submitHandler = async (event) => {
+  const submitHandler = async (event:React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSuccessFul(false);
     setError(false);
     setIsEmailValid(true);
     setIsFirstNameValid(true);
     setIsLastNameValid(true);
-    const firstName = firstNameRef.current.value;
-    const lastName = lastNameRef.current.value;
-    const email = emailRef.current.value;
+    const firstName:string = firstNameRef.current?.value??"";
+    const lastName:string = lastNameRef.current?.value??"";
+    const email:string = emailRef.current?.value??"";
 
     if (firstName.length === 0 && !firstName.match(/^[a-zA-Z]+$/)) {
       setIsFirstNameValid(false);
@@ -81,6 +81,7 @@ const AddData = () => {
       </p>
       <OutlinedInput
         ref={firstNameRef}
+        type="text"
         label="First Name"
         isWrong={!isFirstNameValid}
       />
@@ -89,13 +90,14 @@ const AddData = () => {
       )}
       <OutlinedInput
         ref={lastNameRef}
+        type="text"
         label="Last Name"
         isWrong={!isLastNameValid}
       />
       {!isLastNameValid && (
         <p className="wrongInput">Enter a valid Last name</p>
       )}
-      <OutlinedInput ref={emailRef} label="Email" isWrong={!isEmailValid} />
+      <OutlinedInput ref={emailRef} label="Email" isWrong={!isEmailValid} type="email" />
       {!isEmailValid && <p className="wrongInput">Enter a valid email</p>}
       <button type="submit" className="button">Submit</button>
       {error && <p className="wrongInput">Something went wrong</p>}

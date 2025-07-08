@@ -1,6 +1,19 @@
 import withDataFetching from "@/hoc/withDataFetching";
 
-const Page = ({ data }) => {
+interface AddressInterface{
+  street:string,
+  suite:string,
+  city:string
+}
+
+interface DataInterface{
+  name:string,
+  address:AddressInterface
+  phone:string
+}
+
+
+const Page = ({ data }:{data:DataInterface[]}) => {
   return (
     <div className="flex-col">
       <p className="text-center">

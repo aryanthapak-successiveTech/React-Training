@@ -1,5 +1,18 @@
 import { use } from "react";
 import axios from "axios";
+
+interface AddressInterface{
+  street:string,
+  suite:string,
+  city:string
+}
+
+interface DataInterface{
+  name:string,
+  address:AddressInterface
+  phone:string
+}
+
 const ShowData = () => {
 
   const fetchData = async () => {
@@ -10,7 +23,7 @@ const ShowData = () => {
     return fetchedData.data;
   };
   
-  const data=use(fetchData());
+  const data:DataInterface[]=use(fetchData());
 
   return (
     <div className="flex-col">

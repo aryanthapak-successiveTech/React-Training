@@ -1,18 +1,32 @@
 "use client";
 import useFetchData from "@/hooks/useFetchData";
-import { useState } from "react";
 
-const ClientRetryComponent = ({ error }) => {
+
+interface AddressInterface{
+  street:string,
+  suite:string,
+  city:string
+}
+
+interface DataInterface{
+  name:string,
+  address:AddressInterface
+  phone:string
+}
+
+
+const ClientRetryComponent = ({ error }:{error:Error}) => {
+
   const { data, errors, fetchData } = useFetchData(
     "https://jsonplaceholder.typicode.com/users",
     {},
-    error
+    error.message
   );
 
   return (
     <div className="flex-col">
       {!errors &&
-        data.map((el, idx) => (
+        data.map((el:DataInterface, idx:number) => (
           <div key={idx} className="text-center">
             <p>Name : {el.name}</p>
             <p>

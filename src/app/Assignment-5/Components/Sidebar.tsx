@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export default function Sidebar() {
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
-  const toggleDrawer = (newOpen) => () => {
+  const toggleDrawer = (newOpen:boolean) => () => {
     setOpen(newOpen);
   };
 

@@ -1,6 +1,18 @@
 import { use } from "react";
 import ClientRetryComponent from "../Components/ClientRetryComponent";
 
+interface AddressInterface{
+  street:string,
+  suite:string,
+  city:string
+}
+
+interface DataInterface{
+  name:string,
+  address:AddressInterface
+  phone:string
+}
+
 const ShowData = () => {
   const fetchData = async () => {
     try {
@@ -29,7 +41,7 @@ const ShowData = () => {
         the data again without reloading the entire page.
       </p>
       {Array.isArray(dataOrError) &&
-        dataOrError.map((el, idx) => (
+        dataOrError.map((el:DataInterface, idx:number) => (
           <div key={idx} className="text-center">
             <p>Name : {el.name}</p>
             <p>

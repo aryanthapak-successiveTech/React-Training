@@ -3,7 +3,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const ClientRetryUsingAxios = ({ error }) => {
+
+interface AddressInterface{
+  street:string,
+  suite:string,
+  city:string
+}
+
+interface DataInterface{
+  name:string,
+  address:AddressInterface
+  phone:string
+}
+
+const ClientRetryUsingAxios = ({ error }:{error:string}) => {
   const [data, setData] = useState([]);
   const [isError, setIsError] = useState(false);
   const fetchData = async () => {
@@ -36,7 +49,7 @@ const ClientRetryUsingAxios = ({ error }) => {
   return (
     <div className="flex-col">
       {!isError &&
-        data.map((el, idx) => (
+        data.map((el:DataInterface, idx:number) => (
           <div key={idx} className="text-center">
             <p>Name : {el.name}</p>
             <p>

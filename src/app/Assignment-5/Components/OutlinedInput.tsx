@@ -1,10 +1,19 @@
 import * as React from "react";
 import TextField from "@mui/material/TextField";
 
-const OutlinedInput = React.forwardRef(function OutlinedInput(
+interface OutlinedInputInterface {
+  onChangeHandler?: (event:React.ChangeEvent<HTMLInputElement>) => void;
+  onBlurHandler?: (event:React.FocusEvent<HTMLInputElement>) => void;
+  label: string;
+  isWrong: boolean;
+  value?: string;
+  type: string;
+}
+
+const OutlinedInput= React.forwardRef<HTMLInputElement,OutlinedInputInterface>((
   { onChangeHandler, onBlurHandler, label, isWrong, value, type },
   ref
-) {
+)=> {
   return (
     <TextField
       id="outlined-basic"

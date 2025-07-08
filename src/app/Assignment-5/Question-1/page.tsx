@@ -1,5 +1,17 @@
 import { use } from "react";
 
+interface AddressInterface{
+  street:string,
+  suite:string,
+  city:string
+}
+
+interface DataInterface{
+  name:string,
+  address:AddressInterface
+  phone:string
+}
+
 const ShowData = () => {
   const fetchData = async () => {
     const res = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -16,7 +28,7 @@ const ShowData = () => {
         the server side (SSR) from a public API (e.g., JSONPlaceholder) and
         displays the results on the page.
       </p>
-      {data.map((el, idx) => (
+      {data.map((el:DataInterface, idx:number) => (
         <div key={idx} className="text-center">
           <p>Name : {el.name}</p>
           <p>

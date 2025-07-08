@@ -3,6 +3,18 @@ import useFetchData from "@/hooks/useFetchData";
 import { useEffect } from "react";
 import Loader from "../Components/Loader";
 
+interface AddressInterface{
+  street:string,
+  suite:string,
+  city:string
+}
+
+interface DataInterface{
+  name:string,
+  address:AddressInterface
+  phone:string
+}
+
 const ShowData = () => {
   const { data, errors, loading, fetchData } = useFetchData(
     "https://jsonplaceholder.typicode.com/users"
@@ -25,7 +37,7 @@ const ShowData = () => {
       </p>
       {loading && <Loader />}
       {!errors &&
-        data.map((el, idx) => (
+        data.map((el:DataInterface, idx:number) => (
           <div key={idx} className="text-center">
             <p>Name : {el.name}</p>
             <p>
