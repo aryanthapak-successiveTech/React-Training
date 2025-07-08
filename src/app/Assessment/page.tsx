@@ -55,7 +55,7 @@ const TicTacToePage = () => {
     }
   };
 
-  const onUserActionHandler = (idx) => {
+  const onUserActionHandler = (idx:number) => {
     if (blocks[idx] !== "" || playerWon || computerWon || isTie) return;
 
     setBlocks((prev) =>
