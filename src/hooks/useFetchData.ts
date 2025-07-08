@@ -1,6 +1,12 @@
 const { useState, useEffect } = require("react");
 
-const useFetchData = (fetchUrl, apiConfig, initialError = false) => {
+interface ApiConfigInterface{
+  method?:"POST"|"GET"|"PUT"|"DELETE",
+  body?:string,
+  headers?:HeadersInit
+}
+
+const useFetchData = (fetchUrl:string, apiConfig?:ApiConfigInterface, initialError:string|false = false) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState(false);

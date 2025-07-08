@@ -17,9 +17,15 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({ optionSelectHandler, title,oppositeOptionSelectHandler,isCompFirstMoverHandler }) {
+interface ModalInterface{
+  optionSelectHandler:(payload:string)=>void,
+   title:string,
+   oppositeOptionSelectHandler:(payload:string)=>void,
+   isCompFirstMoverHandler:(payload:boolean)=>void
+}
+
+const BasicModal:React.FC<ModalInterface>=({ optionSelectHandler, title,oppositeOptionSelectHandler,isCompFirstMoverHandler })=>{
   const [open, setOpen] = React.useState(true);
-  const handleClose = () => setOpen(false);
 
   return (
     <div>
@@ -61,3 +67,5 @@ export default function BasicModal({ optionSelectHandler, title,oppositeOptionSe
     </div>
   );
 }
+
+export default BasicModal;

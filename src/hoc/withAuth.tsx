@@ -1,9 +1,9 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { JSX, useEffect } from "react";
 
-const withAuth = (WrappedComponent) => {
-  return function AuthenticatedComponent(props) {
+function withAuth<T extends JSX.IntrinsicAttributes>(WrappedComponent:React.ComponentType<T >) {
+  return function AuthenticatedComponent(props:T){
     const router = useRouter();
     useEffect(() => {
       const isAuthenticated = localStorage.getItem("isLoggedIn");

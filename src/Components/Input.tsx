@@ -1,5 +1,14 @@
 import styles from "@/styles/input.module.css";
-const Input = (props) => {
+interface InputInteface{
+  title:string,
+  type:string,
+  onChangeHandler:(event:React.ChangeEvent<HTMLInputElement>)=>void
+  isInvalid?:boolean
+  value?:string|number
+  name?:string
+  isRequired?:boolean
+}
+const Input = (props:InputInteface) => {
   const { title, isRequired, type, onChangeHandler, isInvalid ,value,name} = props;
   const classes = type != "radio" ? styles["textInput"] : "";
   return (

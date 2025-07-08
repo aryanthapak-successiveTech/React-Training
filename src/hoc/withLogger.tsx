@@ -1,8 +1,8 @@
 "use client";
-import { useEffect} from "react";
+import { JSX, useEffect} from "react";
 
-const withLogger = (WrappedComponent) => {
-  return function LoggingOfComponents(props) {
+function withLogger<T extends JSX.IntrinsicAttributes>(WrappedComponent:React.ComponentType<T>){
+  return function LoggingOfComponents(props:T) {
     useEffect(() => {
       console.log("Mounted");
 

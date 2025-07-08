@@ -1,7 +1,7 @@
-import { use} from "react";
+import { JSX, use} from "react";
 
-const withDataFetching = (WrappedComponent) => {
-  return function FetchedDataComponent(props) {
+function withDataFetching<T extends JSX.IntrinsicAttributes>(WrappedComponent:React.ComponentType<T>){
+  return function FetchedDataComponent(props:T) {
      const fetchData=async ()=>{
             const res=await fetch("https://jsonplaceholder.typicode.com/users");
             const data=await res.json();

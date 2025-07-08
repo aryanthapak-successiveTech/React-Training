@@ -1,4 +1,10 @@
-const UserProfile=({name,email,phoneNo})=>{
+interface UserProfileInterface{
+    name:string,
+    email:string,
+    phoneNo:string
+}
+
+const UserProfile:React.FC<UserProfileInterface>=({name,email,phoneNo})=>{
     return(
         <div>
         <h3>User Profile</h3>

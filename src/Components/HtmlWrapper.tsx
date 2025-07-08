@@ -1,8 +1,8 @@
 "use client"
 import { LanguageContext } from "@/context/LanguageContext";
-import { useContext } from "react";
+import { ReactNode, useContext } from "react";
 
-const HtmlWrapper=({children})=>{
+const HtmlWrapper=({children}:{children:ReactNode})=>{
     const {language}=useContext(LanguageContext);
     
     return(

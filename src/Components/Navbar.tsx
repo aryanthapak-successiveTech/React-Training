@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import { CartContext } from "@/context/CartContext";
 
-const pathName = ["Assignment-1", "Assignment-2", "Assignment-3","Assignment-4","Assignment-5"];
+const pathName:string[] = ["Assignment-1", "Assignment-2", "Assignment-3","Assignment-4","Assignment-5"];
 const Navbar = () => {
   const { totalCount } = useContext(CartContext);
   const router = useRouter();

@@ -17,7 +17,13 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({ text, title }) {
+interface ModalInterface{
+  text:string,
+  title:string
+}
+
+export default function BasicModal(props:ModalInterface) {
+  const { text, title }=props;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

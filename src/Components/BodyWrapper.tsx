@@ -1,10 +1,10 @@
 
 "use client";
 
-import { useContext } from "react";
+import { ReactNode, useContext } from "react";
 import { ThemeContext } from "@/context/ThemeContext";
 
-const BodyWrapper = ({ children }) => {
+const BodyWrapper = ({ children }:{children:ReactNode}) => {
   const { theme } = useContext(ThemeContext);
 
   return (
