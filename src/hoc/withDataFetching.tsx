@@ -1,8 +1,19 @@
 import React from "react";
 
+interface AddressInterface {
+  street: string;
+  suite: string;
+  city: string;
+}
+
+interface DataInterface {
+  name: string;
+  address: AddressInterface;
+  phone: string;
+}
 
 export function withDataFetching<T>(
-  WrappedComponent: React.ComponentType<T & { data: any }>
+  WrappedComponent: React.ComponentType<T & { data: DataInterface[] }>
 ) {
   return async function FetchedDataComponent(props: Omit<T, "data">) {
 

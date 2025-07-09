@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["jest", "@testing-library/jest-dom"],
     "target": "ES2017",
     "lib": [
       "dom",
@@ -35,7 +36,7 @@
     "**/*.tsx",
     "src/Components/Counter.test.tsx",
     "src/app/Assignment-6/Question-1/page.jsx"
-, "src/app/Assignment-6/UserProfile/page.jsx", "src/app/Assignment-6/Components/LazyCounter.jsx", "src/app/Assignment-6/page.jsx", "src/hoc/withDataFetching.tsx"  ],
+, "src/app/Assignment-6/UserProfile/page.jsx", "src/app/Assignment-6/Components/LazyCounter.jsx", "src/app/Assignment-6/page.jsx", "src/hoc/withDataFetching.tsx", "jest.setup.js"  ],
   "exclude": [
     "node_modules"
   ]

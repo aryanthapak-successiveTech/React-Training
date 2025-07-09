@@ -1,5 +1,3 @@
-// app/somepage/page.tsx
-
 import withDataFetching from "@/hoc/withDataFetching";
 import Page from "../Components/HocFetch";
 
