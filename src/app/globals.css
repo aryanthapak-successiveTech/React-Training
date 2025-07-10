@@ -119,3 +119,24 @@
 .yellowText {
   color: yellow;
 }
+
+.grid{
+
+  position:absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  display: grid;
+  grid-template-columns: repeat(3,3rem);
+  grid-template-rows: repeat(3,4rem);
+}
+
+.light .grid input{
+    text-align: center;
+}
+
+.dark .grid input{
+    text-align: center;
+    background-color: transparent;
+    color: white;
+}

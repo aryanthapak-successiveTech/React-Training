@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "types": ["jest", "@testing-library/jest-dom"],
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "incremental": true,
+    "module": "esnext",
+    "esModuleInterop": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/Components/Counter.test.tsx",
+    "src/app/Assignment-6/Question-1/page.jsx"
+, "src/app/Assignment-6/UserProfile/page.jsx", "src/app/Assignment-6/Components/LazyCounter.jsx", "src/app/Assignment-6/page.jsx", "src/hoc/withDataFetching.tsx", "jest.setup.js"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
