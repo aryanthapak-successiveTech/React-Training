@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import Child from "../Component/Child";
 
 const Counter3 = () => {
@@ -15,4 +15,4 @@ const Counter3 = () => {
   return <Child count={count} increaseCount={increaseCount} resetCount={resetCount} />;
 };
 
-export default Counter3;
+export default memo(Counter3);

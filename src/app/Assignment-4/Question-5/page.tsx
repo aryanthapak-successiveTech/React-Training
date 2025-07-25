@@ -1,9 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const DropDownPage = () => {
   const [selectedOption, setSelectedOption] = useState<string>("");
-  const options:string[] = ["Maggie", "Pasta", "Spagetti", "Garlic Bread", "Pizza"];
+  const options:string[] = ["Select a option","Maggie", "Pasta", "Spagetti", "Garlic Bread", "Pizza"];
   return (
     <div className="form">
       <select onChange={(event:React.ChangeEvent<HTMLSelectElement>) => setSelectedOption(event.target.value)}>
@@ -13,7 +13,7 @@ const DropDownPage = () => {
           </option>
         ))}
       </select>
-      {options.length != 0 && <p>{selectedOption}</p>}
+      {options.length != 0 && selectedOption!==options[0] &&<p>{selectedOption}</p>}
     </div>
   );
 };

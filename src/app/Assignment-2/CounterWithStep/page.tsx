@@ -27,6 +27,11 @@ const CounterWithStep = () => {
       setStepIsValid(false);
       return;
     }
+
+    if(event.target.value.trim().length===0){
+      setStep(1);
+      return;
+    }
     setStep(Number(event.target.value));
   };
 
